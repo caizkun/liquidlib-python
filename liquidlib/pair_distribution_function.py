@@ -3,31 +3,19 @@ Pair Distribution Function
 """
 import sys
 
-from liquidlib.input_parser import InputParser, RdomainParser
-from liquidlib.physical_quantity import PhysicalQuantity
-from liquidlib.trajectory_factory import TrajectoryFactory
+from liquidlib.input_checker import PairDistributionInputChecker
+from liquidlib.quantity import Quantity
 
 
-class PairDistributionFunction(PhysicalQuantity):
-    """ Pair Distribution Function"""
+class PairDistributionFunction(Quantity):
+    """ Pair Distribution Function """
 
-    def __init__(self):
-        pass
-
-    def _prepare(self, input_file="g_r.in"):
-        super()._prepare(input_file)
-        self._parse_input()
-        self._read_trajectory()
-
-    def _parse_input(self):
-        self.input_parser = RdomainParser()
-        self.input_parameters = self.input_parser.parse(self.input_file)
-
-    def _read_trajectory(self):
-        self.trajectoryFactory = TrajectoryFactory(self.input_parameters["trajectory_file_name"])
-        self.trajectory = self.trajectoryFactory.prepareTrajectory(self.input_parameters)
+    def __init__(self, input_file="g_r.in"):
+        super().__init__(input_file)
+        self.input_checker = PairDistributionInputChecker()
 
     def _compute(self):
+        """ main logic to compute the quantity """
         pass
 
     def _write(self):
@@ -45,10 +33,10 @@ def main():
         input_file = str(sys.argv[1])
     print(input_file)
 
-    pair_distribution_function = PairDistributionFunction()
+    pair_distribution_function = PairDistributionFunction(input_file)
     print("%r" % pair_distribution_function)
 
-    pair_distribution_function.execute(input_file)
+    pair_distribution_function.execute()
 
 
 if __name__ == '__main__':
