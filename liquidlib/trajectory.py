@@ -22,23 +22,23 @@ class Trajectory(object):
 
 class TrrTrajectory(Trajectory):
     def read(self, input_parameters):
-        """ This method reads .trr file. """
+        """Read .trr file"""
         pass
 
 
 class XtcTrajectory(Trajectory):
     def read(self, input_parameters):
-        """ This method reads .xtc file. """
+        """Read .xtc file"""
         pass
 
 
 class XyzTrajectory(Trajectory):
     def read(self, input_parameters):
-        """ This method reads .xyz file. """
+        """Read .xyz file"""
         pass
 
 
 class LammpsTrajectory(Trajectory):
     def read(self, input_parameters):
-        """ This method reads .lammpstrj file. """
+        """Read .lammpstrj file """
         pass

@@ -34,6 +34,3 @@ class RTDomainInputChecker(InputChecker):
 class KTDomainInputChecker(InputChecker):
     pass
 
-
-class PairDistributionInputChecker(RDomainInputChecker):
-    pass

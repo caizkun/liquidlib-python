@@ -7,6 +7,7 @@ class InputParser(object):
     def __init__(self):
         pass
 
+    @staticmethod
     def parse(self, input_file):
         # TODO: somewhere try .. except .. finally ..
         pass

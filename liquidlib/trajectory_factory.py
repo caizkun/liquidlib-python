@@ -2,12 +2,16 @@ from liquidlib.trajectory import TrrTrajectory, XtcTrajectory, XyzTrajectory, La
 
 
 class TrajectoryFactory(object):
-    """ This is a simple factory to prepare trajectory. """
+    """A simple factory to prepare trajectory"""
 
     def __init__(self):
         pass
 
     def create_trajectory(self, trajectory_file_name):
+        """Returns a specific trajectory type based on the file type
+
+        :param trajectory_file_name: file name of the trajectory file
+        """
         trajectory_file_type = str(trajectory_file_name).split(".")[-1]
 
         if trajectory_file_type == "trr":
@@ -20,8 +24,9 @@ class TrajectoryFactory(object):
         return None
 
 
-class DemoCustomizedTrajectoryFactory(TrajectoryFactory):
-    """ This is a demo class to extend TrajectoryFactory """
+class CustomizedTrajectoryFactory(TrajectoryFactory):
+    """A demo class to extend TrajectoryFactory"""
+
     def create_trajectory(self, trajectory_file_name):
         trajectory = super().create_trajectory(trajectory_file_name)
 

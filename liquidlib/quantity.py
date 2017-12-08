@@ -11,15 +11,19 @@ from liquidlib.trajectory_factory import TrajectoryFactory
 
 
 class Quantity(object):
-    """ Base class for physical quantities computed in liquidlib """
+    """Abstract base class for quantities computed in liquidlib."""
 
     def __init__(self, input_file="quantity.in"):
+        """Constructor of class Quantity
+
+        :param input_file: input file defining computation parameters
+        """
         self.input_file = input_file
         self.input_checker = InputChecker()
         self.trajectory_factory = TrajectoryFactory()
 
     def execute(self):
-        """ This method executes all the procedures for calculation """
+        """Executes all the procedures for calculation """
         self._parse_input()
         self._check_input()
         self._read_trajectory()
@@ -27,15 +31,19 @@ class Quantity(object):
         self._write()
 
     def _parse_input(self):
-        """ This method parses input parameters from input file. """
-        input_parser = InputParser()
-        self.input_parameters = input_parser.parse(self.input_file)
+        """Parses input parameters from input file """
+        self.input_parameters = InputParser.parse(self.input_file)
 
     def _check_input(self):
-        """ This method check the validity of input parameters. """
+        """Check the validity of input parameters """
         self.input_checker.check(self.input_parameters)
 
     def _read_trajectory(self):
+        """Read trajectory
+
+        Instantiate a trajectory class using simple factory pattern,
+        then read trajectory content
+        """
         # self.input_parameters = dict()
         # self.input_parameters["trajectory_file_name"] = "test.trr"
         trajectory_file_name = self.input_parameters["trajectory_file_name"]
@@ -43,12 +51,18 @@ class Quantity(object):
         self.trajectory.read(self.input_parameters)
 
     def _compute(self):
-        """ This method contains the main logic to compute the quantity. """
+        """Main logic to compute the quantity
+
+        This method needs to be implemented in the derived class.
+        """
         pass
 
     def _write(self):
-        """ This methods write the result to a file. """
+        """Write the result to a file
+
+        This method needs to be implemented in the derived class.
+        """
         pass
 
     def __repr__(self):
-        return "<class PhysicalQuantity>: the base class for specific quantities."
+        return "<class Quantity>: abstract base class for specific quantity."
