@@ -3,12 +3,13 @@
 A reconstructed, mini-skeleton of [LiquidLib](http://zhang-group.github.io/LiquidLib/) written in Python
 
 
-This project is motivated by my eagerness to to practice and apply design patterns to some problems we have work on before. I am pretty sure there are still a few places that can be improved.
+This project is motivated by my eagerness to to practice and apply design patterns to some problems we have work on before. I am pretty sure there are still a few places that can be improved. The code may not be that *Pythonic* as we may need to rewrite the C++ version if it works. So the code is more like a demo.
 
-If you are interested, please fork it and help me improve the design.
+If you are interested, please fork it and help me improve the design.  
 
 
-Design patterns used:
+
+**Design patterns applied**:
 * Simple factory
 * Strategy
 * Decorator  

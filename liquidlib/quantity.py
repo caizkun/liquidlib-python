@@ -1,5 +1,5 @@
 """
-PhysicalQuantity
+Quantity
 ~~~~~~~~~~~~~~~~
 
 This is the base class for the physical quantities computed in liquidlib.
