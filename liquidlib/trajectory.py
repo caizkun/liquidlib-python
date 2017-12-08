@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+from abc import ABC, abstractmethod
 
 
-class Trajectory(object):
+class Trajectory(ABC):
     """ This is a base class of trajectory. """
     def __init__(self):
         pass
 
+    @abstractmethod
     def read(self, input_parameters):
         pass
 
@@ -41,4 +43,10 @@ class XyzTrajectory(Trajectory):
 class LammpsTrajectory(Trajectory):
     def read(self, input_parameters):
         """Read .lammpstrj file """
+        pass
+
+
+class PdbTrajectory(Trajectory):
+    def read(self, input_parameters):
+        """Read .pdb file"""
         pass

@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
 class InputParser(object):
     """ Input file parser
 

@@ -3,55 +3,35 @@
 
 
 class AtomSelector(object):
-    """Class for atom selection"""
 
-    def __init__(self):
-        """Constructor of AtomSelector class"""
-        self._selection_strategy = SelectionStrategy()
-
-    @property
-    def selection_strategy(self):
-        """Get selection strategy"""
-        return self._selection_strategy
-
-    @selection_strategy.setter
-    def selection_strategy(self, strategy):
-        """Set selection strategy"""
-        self._selection_strategy = strategy
-
-    def select_atoms(self, system_atom_list, atom_types, atom_group, **kwargs):
-        """
-        Public interface to select atoms
-
-        :param system_atom_list:
-        :param atom_types:
-        :param atom_group:
-        :param kwargs:
-        :return:
-        """
-        return self.selection_strategy.select(system_atom_list, atom_types, atom_group, **kwargs)
-
-
-class SelectionStrategy(object):
-
-    def __init__(self):
+    def __init__(self, input_parameters):
         pass
 
-    def select(self, system_atom_list, atom_types, atom_group, **kwargs):
+    def select(self):
         """Abstract method to select atoms
 
         This method needs to be implemented in the derived class
         """
+        # default selection strategy
         pass
 
 
-class SelectByAtomId(SelectionStrategy):
-    def select(self, system_atom_list, atom_types, atom_group, **kwargs):
+class SelectByAtomTypeAtomGroup(AtomSelector):
+    def select(self):
+        pass
+
+
+class SelectByAtomId(AtomSelector):
+    def __init__(self):
+        # add helper variables
+        pass
+
+    def select(self):
         # define a specific strategy here
         pass
 
 
-class SelectByZDepth(SelectionStrategy):
-    def select(self, system_atom_list, atom_types, atom_group, **kwargs):
+class SelectByZDepth(AtomSelector):
+    def select(self):
         # define another specific strategy here
         pass

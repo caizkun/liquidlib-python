@@ -3,7 +3,6 @@ Pair Distribution Function
 """
 import sys
 
-from liquidlib.atom_selector import AtomSelector
 from liquidlib.input_checker import RDomainInputChecker
 from liquidlib.quantity import Quantity
 
@@ -13,10 +12,13 @@ class PairDistributionInputChecker(RDomainInputChecker):
 
 
 class PairDistributionFunction(Quantity):
-    """Pair Distribution Function"""
+    """
+    Pair Distribution Function
+    """
 
     def __init__(self, input_file="g_r.in"):
-        """Constructor of PairDistributionFunction class
+        """
+        Constructor of PairDistributionFunction class
 
         :param input_file: input file defining the computation parameters
         """
@@ -24,15 +26,19 @@ class PairDistributionFunction(Quantity):
         self.input_checker = PairDistributionInputChecker()
 
     def _compute(self):
-        """Main logic to compute the quantity"""
+        """
+        Main logic to compute the quantity
+        """
         # select atoms of interest
-        atom_selector = AtomSelector()
+        selected_atom_indexes = self.atom_selector.select()
 
         # do the heavy lifting here
         pass
 
     def _write(self):
-        """Write the result to a file"""
+        """
+        Write the result to a file
+        """
         # TODO: may use a Util class
         pass
 
@@ -41,7 +47,9 @@ class PairDistributionFunction(Quantity):
 
 
 def main():
-    """Compute the pair distribution function"""
+    """
+    Compute the pair distribution function
+    """
     input_file = "g_r.in"
     if len(sys.argv) > 1:
         input_file = str(sys.argv[1])
@@ -49,6 +57,20 @@ def main():
 
     pair_distribution_function = PairDistributionFunction(input_file)
     print("%r" % pair_distribution_function)
+
+    # Below demonstrate a few more customizations available if needed.
+    # If these customizations still do not fit your needs, you may consider
+    # inheriting the specific quantity your are interested in, and override
+    # some of the methods.
+
+    # if checking new parameters provided in the input file
+    # pair_distribution_function.input_checker = DemoPairDistributionInputChecker()
+
+    # if reading a new trajectory type
+    # pair_distribution_function.trajectory_factory = DemoTrajectoryFactory()
+
+    # if using a new strategy to select atoms
+    # pair_distribution_function.atom_selector = SelectByAtomId(kwargs)
 
     pair_distribution_function.execute()
 
