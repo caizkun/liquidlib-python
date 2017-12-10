@@ -6,7 +6,7 @@ Base class for the quantities computed in liquidlib.
 """
 from abc import ABC, abstractmethod
 
-from liquidlib.api.input_validator import InputValidator
+from liquidlib.api.input_validator import GenericInputValidator
 
 from liquidlib.api.atom_selector import AtomSelector
 from liquidlib.api.input_parser import InputParser
@@ -24,7 +24,7 @@ class Quantity(ABC):
         :param input_file: input file defining the computation parameters
         """
         self.input_file = input_file
-        self._input_validator = InputValidator()
+        self._input_validator = GenericInputValidator()
         self._trajectory_factory = TrajectoryFactory()
         self._atom_selector = AtomSelector()
 

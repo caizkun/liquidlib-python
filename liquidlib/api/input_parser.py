@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import sys
+import traceback
+
 
 class InputParser(object):
     """ Input file parser
@@ -25,11 +28,13 @@ class InputParser(object):
         try:
             # open and parse the file
             pass
+        except FileNotFoundError:
+            print("Input file '%s' not found" % input_file)
+            sys.exit(-1)
         except:
-            print("Incorrect input format encountered!")
-            print("Note that errors may arise in the calculation \
-                    if some parameters are missing.")
-            # exit(-1)
+            print("Unexpected error!")
+            traceback.print_exc()
+            sys.exit(-1)
         finally:
             # close the file and maybe clean up
             pass
