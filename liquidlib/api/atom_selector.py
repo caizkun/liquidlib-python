@@ -4,34 +4,25 @@
 
 class AtomSelector(object):
 
-    def __init__(self, input_parameters):
+    def __init__(self):
         pass
 
-    def select(self):
+    def select(self, input_parameters, trajectory, **kwargs):
         """Abstract method to select atoms
 
         This method needs to be implemented in the derived class
         """
-        # default selection strategy
-        pass
-
-
-class SelectByAtomTypeAtomGroup(AtomSelector):
-    def select(self):
+        # default selection strategy: SelectByAtomTypeAtomGroup
         pass
 
 
 class SelectByAtomId(AtomSelector):
-    def __init__(self):
-        # add helper variables
-        pass
-
-    def select(self):
+    def select(self, input_parameters, trajectory, **kwargs):
         # define a specific strategy here
         pass
 
 
 class SelectByZDepth(AtomSelector):
-    def select(self):
+    def select(self, input_parameters, trajectory, **kwargs):
         # define another specific strategy here
         pass

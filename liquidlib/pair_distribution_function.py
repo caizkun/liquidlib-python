@@ -3,11 +3,11 @@ Pair Distribution Function
 """
 import sys
 
-from liquidlib.input_checker import RDomainInputChecker
-from liquidlib.quantity import Quantity
+from liquidlib.api.input_validator import RDomainQuantityValidator
+from liquidlib.api.quantity import Quantity
 
 
-class PairDistributionInputChecker(RDomainInputChecker):
+class PairDistributionValidator(RDomainQuantityValidator):
     pass
 
 
@@ -23,16 +23,17 @@ class PairDistributionFunction(Quantity):
         :param input_file: input file defining the computation parameters
         """
         super().__init__(input_file)
-        self.input_checker = PairDistributionInputChecker()
+        self.input_checker = PairDistributionValidator()
 
     def _compute(self):
         """
         Main logic to compute the quantity
         """
-        # select atoms of interest
-        selected_atom_indexes = self.atom_selector.select()
+        selected_atom_indexes = self._atom_selector.select(self.input_parameters, self.trajectory)
 
-        # do the heavy lifting here
+        # ---------------------------------
+        # implement the headache logic here
+        # ---------------------------------
         pass
 
     def _write(self):
@@ -46,6 +47,15 @@ class PairDistributionFunction(Quantity):
         return "<class PairDistributionFunction>"
 
 
+# --- Demo of extension ---
+class DemoPairDistributionFunction(PairDistributionFunction):
+    """
+    A demo class that extends class PairDistributionFunction
+    """
+    def _compute(self):
+        pass
+
+
 def main():
     """
     Compute the pair distribution function
@@ -53,9 +63,10 @@ def main():
     input_file = "g_r.in"
     if len(sys.argv) > 1:
         input_file = str(sys.argv[1])
-    print(input_file)
 
     pair_distribution_function = PairDistributionFunction(input_file)
+
+    print(pair_distribution_function.input_file)
     print("%r" % pair_distribution_function)
 
     # Below demonstrate a few more customizations available if needed.
@@ -63,14 +74,14 @@ def main():
     # inheriting the specific quantity your are interested in, and override
     # some of the methods.
 
-    # if checking new parameters provided in the input file
-    # pair_distribution_function.input_checker = DemoPairDistributionInputChecker()
-
-    # if reading a new trajectory type
-    # pair_distribution_function.trajectory_factory = DemoTrajectoryFactory()
-
     # if using a new strategy to select atoms
-    # pair_distribution_function.atom_selector = SelectByAtomId(kwargs)
+    # pair_distribution_function.atom_selector = SelectByAtomId()
+
+    # if validating new parameters provided in the input file
+    # pair_distribution_function.input_validator = DemoPairDistributionInputValidator()
+
+    # if reading a new uncommon trajectory type
+    # pair_distribution_function.trajectory_factory = DemoTrajectoryFactory()
 
     pair_distribution_function.execute()
 

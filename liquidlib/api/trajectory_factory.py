@@ -1,4 +1,4 @@
-from liquidlib.trajectory import TrrTrajectory, XtcTrajectory, XyzTrajectory, LammpsTrajectory
+from liquidlib.api.trajectory import TrrTrajectory, XtcTrajectory, XyzTrajectory, LammpsTrajectory
 
 
 class TrajectoryFactory(object):
@@ -29,7 +29,7 @@ class TrajectoryFactory(object):
 class DemoTrajectoryFactory(TrajectoryFactory):
     """A demo class to extend TrajectoryFactory"""
 
-    def create_trajectory(self, trajectory_file_name):
+    def prepare_trajectory(self, trajectory_file_name):
         trajectory = super().create_trajectory(trajectory_file_name)
 
         if trajectory is None:
