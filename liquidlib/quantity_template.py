@@ -23,9 +23,9 @@ from liquidlib.api.input_validator import InputValidator
 from liquidlib.api.quantity import Quantity
 
 
-# class TemplateQuantityValidator(InputValidator):
-#     def validate(self, input_parameters):
-#         pass
+class TemplateQuantityValidator(InputValidator):
+    def validate(self, input_parameters):
+        pass
 
 
 class TemplateQuantity(Quantity):

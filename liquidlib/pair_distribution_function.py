@@ -1,6 +1,10 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 """
 Pair Distribution Function
 """
+
 import sys
 
 from liquidlib.api.input_validator import RSpaceDecorator
@@ -31,17 +35,17 @@ class PairDistributionFunction(Quantity):
         Main logic to compute the quantity
         """
         selected_atom_indexes = self._atom_selector.select(self.input_parameters, self.trajectory)
-
+        # ---------------------------------
         # implement the headache logic here
-
+        # ---------------------------------
         pass
 
     def _write(self):
         """
         Write the result to a file
         """
-        # TODO: may use a Util class
         pass
+
 
     def __repr__(self):
         return "<class PairDistributionFunction> instantiated from input file '%s'" % self.input_file

@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+"""
+Classes for k-vectors generation
+"""
 
 class KvectorGenerator(object):
     """Base class of strategy to generate k-vector"""

@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+"""
+Classes for atom selection
+"""
+
 
 class AtomSelector(object):
 

@@ -1,4 +1,4 @@
-from liquidlib.api.trajectory import TrrTrajectory, XtcTrajectory, XyzTrajectory, LammpsTrajectory
+from liquidlib.api.trajectory import TrrTrajectory, XtcTrajectory, XyzTrajectory, LammpsTrajectory, PdbTrajectory
 
 
 class TrajectoryFactory(object):

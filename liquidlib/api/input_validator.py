@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Input Validator
+Input Validator (implemented using Decorator Pattern)
 ~~~~~~~~~~~~~~~
 
 Validate input parameters for the calculation

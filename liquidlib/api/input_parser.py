@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+"""
+InputParser
+~~~~~~~~~~~
+
+Utility class to parse input parameters from the input file
+"""
+
 import sys
 import traceback
 
@@ -31,6 +38,7 @@ class InputParser(object):
         except FileNotFoundError:
             print("Input file '%s' not found" % input_file)
             sys.exit(-1)
+        # add other exceptions
         except:
             print("Unexpected error!")
             traceback.print_exc()

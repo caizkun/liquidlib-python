@@ -1,12 +1,16 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 """
 Quantity
-~~~~~~~~~~~~~~~~
+~~~~~~~~
 
 Base class for the quantities computed in liquidlib.
 """
+
 from abc import ABC, abstractmethod
 
-from liquidlib.api.input_validator import GenericInputValidator
+from liquidlib.api.input_validator import GenericInputValidator, InputValidator
 
 from liquidlib.api.atom_selector import AtomSelector
 from liquidlib.api.input_parser import InputParser
@@ -78,6 +82,8 @@ class Quantity(ABC):
 
     @trajectory_factory.setter
     def trajectory_factory(self, factory):
+        if not isinstance(factory, TrajectoryFactory):
+            raise TypeError
         self._trajectory_factory = factory
 
     @property
@@ -86,6 +92,8 @@ class Quantity(ABC):
 
     @input_validator.setter
     def input_validator(self, validator):
+        if not isinstance(validator, InputValidator):
+            raise TypeError
         self._input_validator = validator
 
     @property
@@ -94,6 +102,8 @@ class Quantity(ABC):
 
     @atom_selector.setter
     def atom_selector(self, selector):
+        if not isinstance(selector, AtomSelector):
+            raise TypeError
         self._atom_selector = selector
 
     def __repr__(self):
