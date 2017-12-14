@@ -10,6 +10,9 @@ from liquidlib.api.trajectory_factory import TrajectoryFactory, DemoTrajectoryFa
 
 
 class TestQuantity(unittest.TestCase):
+    """
+    Unit test cases for class Quantity
+    """
     def setUp(self):
         class DerivedQuantity(Quantity):
             def _compute(self):

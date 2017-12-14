@@ -1,3 +1,13 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""
+TrajectoryFactory
+~~~~~~~~
+
+A simple factory to create trajectory
+"""
+
 from liquidlib.api.trajectory import TrrTrajectory, XtcTrajectory, XyzTrajectory, LammpsTrajectory, PdbTrajectory
 
 

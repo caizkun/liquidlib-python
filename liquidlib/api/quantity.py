@@ -5,7 +5,7 @@
 Quantity
 ~~~~~~~~
 
-Base class for the quantities computed in liquidlib.
+Base class for the quantities computed in liquidlib
 """
 
 from abc import ABC, abstractmethod
@@ -54,8 +54,6 @@ class Quantity(ABC):
         Instantiate a trajectory class using simple factory pattern,
         then read the trajectory content
         """
-        self.input_parameters = dict()
-        self.input_parameters["trajectory_file_name"] = "test.trr"
         trajectory_file_name = self.input_parameters["trajectory_file_name"]
         self.trajectory = self._trajectory_factory.create_trajectory(trajectory_file_name)
         self.trajectory.read(self.input_parameters)

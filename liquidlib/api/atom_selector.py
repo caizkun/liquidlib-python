@@ -7,16 +7,15 @@ Classes for atom selection
 
 
 class AtomSelector(object):
+    """
+    Base class for atom selection
+    """
 
     def __init__(self):
         pass
 
     def select(self, input_parameters, trajectory, **kwargs):
-        """Abstract method to select atoms
-
-        This method needs to be implemented in the derived class
-        """
-        # default selection strategy: SelectByAtomTypeAtomGroup
+        # default selection strategy
         pass
 
 
