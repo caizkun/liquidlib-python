@@ -7,7 +7,7 @@ Pair Distribution Function
 
 import sys
 
-from liquidlib.api.input_validator import RSpaceDecorator
+from liquidlib.api.input_validator import RSpaceValidator
 from liquidlib.api.quantity import Quantity
 
 
@@ -28,7 +28,7 @@ class PairDistributionFunction(Quantity):
         :param input_file: input file defining the computation parameters
         """
         super().__init__(input_file)
-        self._input_validator = RSpaceDecorator()
+        self._input_validator = RSpaceValidator()
 
     def _compute(self):
         """
