@@ -2,10 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Quantity
-~~~~~~~~
-
-Base class for the quantities computed in liquidlib
+Quantity: Base class for the quantities computed in liquidlib
 """
 
 from abc import ABC, abstractmethod

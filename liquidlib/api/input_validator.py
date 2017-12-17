@@ -2,9 +2,6 @@
 # -*- coding: utf-8 -*-
 
 """
-Input Validator
-~~~~~~~~~~~~~~~
-
 Validate input parameters for the calculation
 """
 # TODO: may throw exception
@@ -24,6 +21,9 @@ class InputValidator(ABC):
     def validate(self, input_parameters):
         """
         Abstract method to validate input parameters
+
+        :param input_parameters: a dictionary of input parameters
+        :return: a boolean value indicating success (true) or failure (false)
         """
         pass
 
@@ -32,7 +32,7 @@ class InputValidator(ABC):
 
 class GenericInputValidator(InputValidator):
     """
-    Class to check generic parameters for each calculation
+    Concrete class to check generic parameters for each calculation
     """
     def validate(self, input_parameters):
         """
@@ -55,7 +55,7 @@ class DecoratorOfInputValidator(InputValidator):
 
 class RSpaceDecorator(DecoratorOfInputValidator):
     """
-    Validate parameters for real-space quantity
+    Decorator to validate parameters for real-space quantity
     """
     def __init__(self, input_validator):
         self.input_validator = input_validator
@@ -70,7 +70,7 @@ class RSpaceDecorator(DecoratorOfInputValidator):
 
 class KSpaceDecorator(DecoratorOfInputValidator):
     """
-    Validate parameters for reciprocal-space quantity
+    Decorator to validate parameters for reciprocal-space quantity
     """
     def __init__(self, input_validator):
         self.input_validator = input_validator
@@ -85,7 +85,7 @@ class KSpaceDecorator(DecoratorOfInputValidator):
 
 class TDomainDecorator(DecoratorOfInputValidator):
     """
-    Validate parameters for time-domain quantity
+    Decorator to validate parameters for time-domain quantity
     """
     def __init__(self, input_validator):
         self.input_validator = input_validator
@@ -101,30 +101,45 @@ class TDomainDecorator(DecoratorOfInputValidator):
 # --- decorated component for easy use in liquidlib ---
 
 class RSpaceValidator(InputValidator):
+    """
+    Validate parameters for real-space quantity
+    """
     def validate(self, input_parameters):
         input_validator = RSpaceDecorator(GenericInputValidator())
         input_validator.validate(input_parameters)
 
 
 class KSpaceValidator(InputValidator):
+    """
+    Validate parameters for reciprocal-space quantity
+    """
     def validate(self, input_parameters):
         input_validator = KSpaceDecorator(GenericInputValidator())
         input_validator.validate(input_parameters)
 
 
 class TDomainValidator(InputValidator):
+    """
+    Validate parameters for time-domain quantity
+    """
     def validate(self, input_parameters):
         input_validator = TDomainDecorator(GenericInputValidator())
         input_validator.validate(input_parameters)
 
 
 class RSpaceTDomainValidator(InputValidator):
+    """
+    Validate parameters for the quantity in real-space and time-domain
+    """
     def validate(self, input_parameters):
         input_validator = RSpaceDecorator(TDomainDecorator(GenericInputValidator()))
         input_validator.validate(input_parameters)
 
 
 class KSpaceTDomainValidator(InputValidator):
+    """
+    Validate parameters for the quantity in reciprocal-space and time-domain
+    """
     def validate(self, input_parameters):
         input_validator = KSpaceDecorator(TDomainDecorator(GenericInputValidator()))
         input_validator.validate(input_parameters)

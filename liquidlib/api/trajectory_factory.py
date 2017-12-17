@@ -2,9 +2,6 @@
 # -*- coding: utf-8 -*-
 
 """
-TrajectoryFactory
-~~~~~~~~
-
 A simple factory to create trajectory
 """
 

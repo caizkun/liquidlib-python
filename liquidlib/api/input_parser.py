@@ -2,10 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-InputParser
-~~~~~~~~~~~
-
-Utility class to parse input parameters from the input file
+Parse input parameters from the input file
 """
 
 import sys
@@ -13,9 +10,8 @@ import traceback
 
 
 class InputParser(object):
-    """ Input file parser
-
-    return: a dictionary of input parameters
+    """
+    Utility class to parse the input file
     """
 
     def __init__(self):
@@ -26,7 +22,7 @@ class InputParser(object):
         """
         Parse the input file to retrieve input parameters
 
-        :param input_file: input file defining the computation parameters
+        :param input_file: an input file defining the computation parameters
         :return: a dictionary of input parameters
         """
         # TODO: is json or xml more suitable for the input file format?

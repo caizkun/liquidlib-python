@@ -2,10 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-TrajectoryFactory
-~~~~~~~~
-
-A simple factory to create trajectory of specific types
+Classes of trajectory
 """
 
 from abc import ABC, abstractmethod

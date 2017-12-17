@@ -2,17 +2,15 @@
 # -*- coding: utf-8 -*-
 
 """
-A template for writing a NEW quantity
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Note:
-To write a specific version of an existing quantity, consider inheriting the class
-of that quantity.
+A template for writing a NEW quantity.
+
+Note: To write a specific version of an existing quantity, consider inheriting the class of that quantity.
 
 Usage:
 1. Execute the below command in terminal to replace the name for class and variable
-    $ copy quantity_template.py your_quantity_filename.py
-    $ sed -i.bak 's/TemplateQuantity/YourClassName/g' your_quantity_filename.py
-    $ sed -i.bak 's/template_quantity/your_quantity_variable/g' your_quantity_filename.py
+    | $ copy quantity_template.py your_quantity_filename.py
+    | $ sed -i.bak 's/TemplateQuantity/YourClassName/g' your_quantity_filename.py
+    | $ sed -i.bak 's/template_quantity/your_quantity_variable/g' your_quantity_filename.py
 
 2. Now it is your turn to code the main logic for the quantity.
 """
