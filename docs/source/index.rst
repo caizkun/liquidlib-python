@@ -11,10 +11,29 @@ Welcome to liquidlib-python's documentation!
    :caption: Contents:
 
 
+Liquidlib-python presents a reconstructed mini-skeleton of `LiquidLib <http://zhang-group.github.io/LiquidLib/>`_ in Python.
 
-Indices and tables
-==================
+Liquidlib is a post-processing package for molecular simulations written in C++. It takes a trajectory (containing atomic coordinates, etc.) output from simulation, and compute some physical quantities as instructed by an input file, which defines all the necessary parameters for the calculation.
 
-* :ref:`genindex`
+This repo is my attempt to apply design patterns to reconstruct LiquidLib. The code is more like a demo and many code blocks that implment the main algorithms have been skipped.
+
+
+
+**Indices and tables**
+
 * :ref:`modindex`
-* :ref:`search`
+* :ref:`genindex`
+
+
+**Design patterns applied**:
+
+- *Simple factory pattern*: to instantiate a trajectory of specific type
+- *Strategy pattern*: to select atoms of interest
+- *Decorator pattern*: to validate inputs based on variable dependency
+
+
+**Useful references**:
+
+- `OODesign <http://www.oodesign.com/>`_
+- `Head First Design Pattern <http://shop.oreilly.com/product/9780596007126.do>`_
+- `Design Patterns (Gof4) <https://sourcemaking.com/design_patterns>`_
