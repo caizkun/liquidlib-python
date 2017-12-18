@@ -6,7 +6,7 @@ SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 SPHINXPROJ    = liquidlib-python
 SOURCEDIR     = source
-BUILDDIR      = build
+BUILDDIR      = ../../liquidlib-python-docs
 
 # Put it first so that "make" without argument is like "make help".
 help:
