@@ -25,9 +25,9 @@ class Quantity(ABC):
         :param input_file: input file defining the computation parameters
         """
         self.input_file = input_file
-        self._input_validator = GenericInputValidator()
-        self._trajectory_factory = TrajectoryFactory()
-        self._atom_selector = AtomSelector()
+        self.input_validator = GenericInputValidator()
+        self.trajectory_factory = TrajectoryFactory()
+        self.atom_selector = AtomSelector()
 
     def execute(self):
         """Executes all the procedures for calculation"""
