@@ -1,6 +1,6 @@
 # liquidlib-python
 
-A reconstructed mini-skeleton of [LiquidLib](http://zhang-group.github.io/LiquidLib/) written in Python
+A reconstructed mini-skeleton of [LiquidLib](http://z-laboratory.github.io/LiquidLib/) written in Python
 
 Liquidlib is a post-processing package for molecular simulations written in C++. It takes a trajectory (containing atomic coordinates, etc.) output from simulation, and compute some physical quantities as instructed by an input file, which defines all the necessary parameters for the calculation.
 
